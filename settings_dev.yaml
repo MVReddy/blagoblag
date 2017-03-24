@@ -1,0 +1,42 @@
+site:
+    name: The Blagoblag
+    url: https://alexgaynor.net
+    feed: /feed.xml
+
+config:
+    source: content
+    permalink: "{{date.year}}/{{month_name}}/{{date.day}}/{{filename}}/"
+    relate_url: false
+    perpage: 10
+    feedcount: 20
+
+author:
+    default: alex_gaynor
+
+reader:
+    active:
+        - blago.DateFromPathRestructuredTextReader
+
+writer:
+    active:
+        - blago.DirectoryPostWriter
+        - blago.DirectoryPageWriter
+        - blago.DirectoryArchiveWriter
+        - liquidluck.writers.core.ArchiveFeedWriter
+        - liquidluck.writers.core.FileWriter
+        - liquidluck.writers.core.StaticWriter
+        - blago.DirectoryYearWriter
+
+theme:
+    name: alex-gaynor-blog-design
+
+    vars:
+        analytics: UA-1735273-7
+        navigation:
+            - name: Quotes
+              link: /quotes/
+            - name: About
+              link: /about/
+            - name: Contact
+              link: /contact/
+        no_comments: "Sorry, no comments here. I'd much rather you wrote your own blog post or sent me an email instead."
